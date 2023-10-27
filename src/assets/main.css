@@ -150,15 +150,6 @@ body{
 .product:hover .product-btns{
     opacity: 1;
 }
-.flex{
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    height: 50vh;
-    padding: 2rem 1.5rem 3.2rem;
-    margin: 5px;
-}
-
 /* Media Queries */
 @media screen and (min-width: 992px){
     .product-items{

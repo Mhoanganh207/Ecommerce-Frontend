@@ -1,4 +1,4 @@
-/* 
+/*
  * ----------------------------
  * Common CSS
  * ----------------------------
@@ -105,11 +105,11 @@ a,a:hover{
 }
 
 .page-wrapper{
-   
+
     background:#e5e5e5;
 
     height: 100vh;
-    
+
 }
 
 .page-container{
@@ -125,7 +125,7 @@ aside.menu-sidebar.d-none.d-lg-block.clr{
     box-shadow:-2px 0 4px #0000003b
 }
 
-/* 
+/*
  * ----------------------------
  * Header Desktop Section
  * ----------------------------
@@ -280,7 +280,7 @@ input.au-input.au-input-xl{
     right:0;
     min-width:95px;
     color:#6e0f9e;
-    
+
     -webkit-border-radius:3px;
     -moz-border-radius:3px;
     border-radius:43px;
@@ -304,7 +304,7 @@ input.au-input.au-input-xl{
     transform:translate(-50%,-50%)
 }
 
-/* 
+/*
  * ----------------------------
  * Left Menu Bar
  * ----------------------------
@@ -377,10 +377,10 @@ input.au-input.au-input-xl{
 }
 
 .navbar-sidebar .navbar-list li a:hover{
-    color:#0da8e4
+    color:#6e0f9e;
 }
 
-/* 
+/*
  * ----------------------------
  * Header Mobile Section
  * ----------------------------
@@ -516,7 +516,7 @@ input.au-input.au-input-xl{
     padding:10% 15%!important
 }
 
-/* 
+/*
  * ----------------------------
  * Products List
  * ----------------------------
@@ -533,7 +533,7 @@ input.au-input.au-input-xl{
     margin-left: 5px;
 }
 
-/* 
+/*
  * ----------------------------
  * Shopping Cart Checkout
  * ----------------------------
@@ -583,65 +583,9 @@ input.au-input.au-input-xl{
     padding:0 10px;
     border:1px solid #ccc
 }
-.au-checkbox{
-    display:block;
-    position:relative;
-    cursor:pointer;
-    font-size:22px;
-    -webkit-user-select:none;
-    -moz-user-select:none;
-    -ms-user-select:none;
-    user-select:none
-}
-.au-checkbox input{
-    position:absolute;
-    opacity:0;
-    cursor:pointer
-}
-.au-checkmark{
-    position:absolute;
-    top:0;
-    left:0;
-    height:22px;
-    width:22px;
-    background-color:#fff!important;
-    border:2px solid #e5e5e5;
-    -webkit-border-radius:2px;
-    -moz-border-radius:2px;
-    border-radius:2px
-}
-.au-checkbox:hover input~.au-checkmark{
-    background-color:transparent
-}
-.au-checkbox input:checked~.au-checkmark{
-    background-color:#fff
-}
-.au-checkmark:after{
-    content:"";
-    position:absolute;
-    display:none
-}
-.au-checkbox input:checked~.au-checkmark:after{
-    display:block
-}
+
 label.date{
     padding-top:8px
-}
-.au-checkbox .au-checkmark:after{
-    left:5px;
-    top:-1px;
-    width:9px;
-    height:15px;
-    border:solid #0da8e4;
-    border-width:0 4px 4px 0;
-    -webkit-border-radius:2px;
-    -moz-border-radius:2px;
-    border-radius:2px;
-    -webkit-transform:rotate(45deg);
-    -moz-transform:rotate(45deg);
-    -ms-transform:rotate(45deg);
-    -o-transform:rotate(45deg);
-    transform:rotate(45deg)
 }
 option:first{
     color:#ccc
@@ -650,31 +594,15 @@ select{
     color:#828482
 }
 
-/* 
+/*
  * ----------------------------
  * Shopping Cart Details
  * ----------------------------
  */
 
-.table{
-    margin:0
-}
-table.table.table-bordered{
-    border:1px solid #ccc;
-    background:#fff
-}
-.table-bordered td,.table-bordered th{
-    border:1px solid #dee2e6
-}
-table.table.table-bordered th{
-    BACKGROUND:#0da8e4;
-    color:#fff;
-    font-size:14px;
-    padding:7px
-}
-.table-responsive{
-    padding-right:1px
-}
+.table
+
+
 .items select{
     width:100px;
     height:40px;
@@ -685,7 +613,7 @@ table.table.table-bordered th{
     margin-left:5px
 }
 
-/* 
+/*
  * ----------------------------
  * Product Details
  * ----------------------------
@@ -696,17 +624,13 @@ table.table.table-bordered th{
 }
 /**/
 
-/* 
+/*
  * ----------------------------
  * Buttons
  * ----------------------------
  */
 
- .btn-info{
-    color:#fff;
-    background-color:#0da8e4!important;
-    border-color:#0da8e4!important
-}
+
 a.primary-btn{
     width: 50%;
     background:#ad5cf8;
@@ -728,7 +652,7 @@ a.primary-btn:hover{
   font-weight: bold;
 }
 
-/* 
+/*
  * ----------------------------
  * Footer section
  * ----------------------------
@@ -753,7 +677,7 @@ footer ul li{
     padding:10px 20px
 }
 
-/* 
+/*
  * ----------------------------
  * Media Queries
  * ----------------------------
