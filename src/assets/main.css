@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap');
+
+
+
+
+:root{
+    --white-light: rgba(255, 255, 255, 0.5);
+    --alice-blue: #f8f9fa;
+    --carribean-green: #40c9a2;
+    --gray: #ededed;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* Utility stylings */
+.container{
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 88vw;
+    margin: 0 auto;
+}
+.sm-title{
+    font-family: 'Roboto', sans-serif;
+    padding: 0.6rem 0;
+    text-transform: capitalize;
+}
+
+.sm-title{
+    font-weight: 300;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+/* product section */
+.products{
+    background: var(--alice-blue);
+    padding: 3.2rem 0;
+}
+.product{
+    margin: 2rem;
+    position: relative;
+}
+
+.product-content{
+    background: #f8f6f6;
+    padding: 3rem 0.5rem 2rem 0.5rem;
+    cursor: pointer;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    transition: background 0.5s ease;
+}
+.product-img{
+    background: var(--white-light);
+    box-shadow: 0 0 20px 10px var(--white-light);
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border-radius: 50%;
+    transition: background 0.5s ease;
+    display: flex;
+}
+.product-btns{
+    display: flex;
+    justify-content: center;
+    margin-top: 1.4rem;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+.btn-cart, .btn-buy{
+    background: transparent;
+    border: 1px solid black;
+    padding: 0.8rem 0;
+    width: 100px;
+    font-family: inherit;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    transition: all 0.6s ease;
+}
+.btn-cart{
+    position: relative;
+    top: 16px;
+    font-size: 11px;
+    background: black;
+    color: white;
+    z-index: 1;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.btn-cart:hover{
+    color: #7277c4ff;
+    background: #fdf984ff;
+}
+
+.product-info{
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    height: 150px;
+    background: rgb(255, 254, 254);
+    padding: 2rem;
+    transition: background 0.5s ease;
+}
+.product-info-top{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.product-name{
+    color: black;
+    display: block;
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    height: 70px;
+}
+.product-price{
+    font-weight: bold;
+    padding-top: 0.6rem;
+    padding-right: 1rem;
+    display: inline-block;
+}
+.product-price:first-of-type{
+    color: #7277c4ff;
+}
+.product-img img{
+    transition: transform 0.6s ease;
+}
+.product:hover .product-img img{
+    transform: scale(1.1);
+}
+.product:hover .product-content{
+    background: rgb(164, 169, 243);
+}
+
+.product:hover .product-info{
+    background: #fdf984ff;
+
+}
+.product:hover .product-name{
+    color: #7b77c4ff ;
+}
+.product:hover .product-btns{
+    opacity: 1;
+}
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 50vh;
+    padding: 2rem 1.5rem 3.2rem;
+    margin: 5px;
+}
+
+/* Media Queries */
+@media screen and (min-width: 992px){
+    .product-items{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .product-col-r-bottom{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (min-width: 1200px){
+    .product-items{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .product{
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+    .products .text-light{
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 1336px){
+    .product-items{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .product-collection-wrapper{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .flex{
+        height: 60vh;
+    }
+    .product-col-left{
+        height: 121.5vh;
+    }
+}
+
+.hr {
+    height: 1px;
+    border: 0;
+    background: black;
+  }

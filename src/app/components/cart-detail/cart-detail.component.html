@@ -1,0 +1,91 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <div *ngIf="cartItems.length > 0 " class='window mt-5'>
+                <div class='window'>
+                    <div class='order-info'>
+                        <div class='order-info-content'>
+                            <h2 style="padding-top: 9px;">Order Summary</h2>
+                            <div class='line'></div>
+                            <div style="overflow-y: scroll; height: 470px; overflow-x: hidden;" id="checkoutCart">
+
+                                <div *ngFor="let item of cartItems">
+                                    <table class="order-table">
+                                    <tbody>
+
+                                    <tr>
+                                    <td> <img src={{item.imageUrl}} style="max-width: 110%; max-height: 110%; object-fit: contain;" class="full-width">
+                                    </td>
+                                    <td style="width: 425px;">
+                                    <button (click)="remove(item)" class="delete-btn"> Delete</button>
+                                    <tr style="font-size: 23px;">{{item.name}}<tr>
+                                    <span style="position: relative; left: 836px; width: 150px;">
+                                        <div>
+                                            <div style="display: flex;">
+                                                <button (click)="plusItem(item)" class="btn btn-primary btn-sm" style="border-radius: 50%; background: rgb(161, 167, 255); outline: none;">
+                                                    <i class="fa fa-plus"></i>
+                                                </button>
+                                                <div style="width: 50px; text-align: center;">
+                                                    {{item.quantity}}
+                                                </div>
+                                                <button (click)="minusItem(item)" class="btn btn-primary btn-sm" style="border-radius: 50%;background: rgb(161, 167, 255); outline: none;">
+                                                    <i class="fa fa-minus" ></i>
+                                                </button>
+
+                                            </div>
+                                        </div>
+                                    </span>
+                                    <span class="thin small">
+                                        <tr style="color: #7277c4ff; padding-top: 15px; font-size: 18px; font-weight: 500;">{{item.price*item.quantity| currency :'USD'}}<tr>
+                                    </span>
+                                    </td>
+
+                                    </tr>
+                                    </tbody>
+
+                                </table>
+                                    <div class="line"></div>
+                                </div>
+                            </div>
+
+                            <div class='total1' style="flex-direction: column; display: flex;">
+
+                                <div>
+                                    <div class="line"></div>
+                                <span style='float:left;'>
+
+
+                                    TOTAL
+                                </span>
+                                <span style='float:right; text-align:right;'>
+
+
+                                    <div style="color: #7277c4ff;"> {{Price | currency: 'USD'}}</div>
+                                </span>
+                                </div>
+                            <div>
+                                <span style='float:left;'>
+
+
+                                    Quantity
+                                </span>
+                                <span style='float:right; text-align:right;'>
+
+
+                                    <div id="totalprice" style="color: #7277c4ff;"> {{Quantity}}</div>
+                                </span>
+                            </div>
+
+                            </div>
+
+                            <button routerLink="/check-out" class="checkout-btn"> Check Out</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="cartItems.length == 0" class=" alert alert-warning" role="alert" style="background: #f0ffffff;"> Empty </div>
+        </div>
+    </div>
+</div>

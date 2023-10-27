@@ -1,0 +1,34 @@
+<div class="main-content" style="background: #e5e5e5ff;">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div style="padding: 50px; display: flex;">
+                    <div style="padding-right: 40px;">
+                    <img src={{product.imageUrl}}  style="width: 1200px; border-radius: 10px;">
+                    </div>
+                    <div>
+                    <h3>{{product.name}}</h3>
+                    <div style="color: #7277c4; font-size: 20px; font-weight: bold;">{{product.unitPrice | currency:'USD'}}</div>
+                    <button (click)="addtoCart(product)" class="btn"
+                    style="margin:20px 0px; width: 150px; height: 50px;  
+                    text-decoration: none; outline: none; font-size: 18px; font-weight: bold;
+                     color: #7277c4; background: #fdf984;"
+                    >Add to cart</button>
+
+                    <h4>Product Description</h4>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate Duis aute irure dolor in
+                        reprehenderit in voluptate Duis aute irure dolor in reprehenderit in voluptate. Duis
+                        aute irure dolor in reprehenderit in voluptate. Duis aute irure dolor in
+                        reprehenderit
+                        in voluptate. Duis aute irure dolor in reprehenderit in voluptate. Duis aute irure
+                        dolor
+                        in reprehenderit in voluptate. Duis aute irure dolor in reprehenderit in voluptate
+                    </p>
+
+                    <a href="">Back to Product List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

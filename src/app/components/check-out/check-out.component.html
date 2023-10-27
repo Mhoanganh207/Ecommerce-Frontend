@@ -1,0 +1,191 @@
+<div class="checkout">
+    <div class="checkout-panel">
+      <div class="panel-body">
+        <h2 class="title">Checkout</h2>
+  
+        <div class="progressbar">
+          <div class="step"></div>
+          <div class="step"></div>
+          <div class="step"></div>
+          <div class="step"></div>
+        </div>
+      <form id="ngForm" [formGroup]="checkoutFormGroup" class="progress-step" style="width: 780px; height: 370px;" (ngSubmit)="onSubmit()">
+        
+        <form *ngIf="progress==0" formGroupName="customer">
+          <div style="display: flex; justify-content: space-between;">
+          <label style="font-size: 21px; font-weight: 600; color: #7277c4ff; position: relative;
+          left: 16px"> First Name</label>
+          <div *ngIf=" firstName.invalid && (firstName.dirty || firstName.touched)" class="alert-text">
+
+            <div *ngIf="firstName.errors.required || firstName.errors.whitespaceValidator
+
+            ">
+                *First Name is required
+            </div>
+
+            <div *ngIf="firstName.errors.minlength">
+                *First Name must be at least 2 characters long
+            </div>
+
+         </div>
+          </div>
+          <input formControlName="firstName" class="text-input" type="text" placeholder="First Name">
+          
+          <div style="display: flex; justify-content: space-between;">
+            <label style="font-size: 21px; font-weight: 600; color: #7277c4ff; position: relative;
+            left: 16px"> Last Name</label>
+            <div *ngIf=" lastName.invalid && (lastName.dirty || lastName.touched)" class="alert-text">
+  
+              <div *ngIf="lastName.errors.required || lastName.errors.whitespaceValidator()">
+                  *Last Name is required
+              </div>
+  
+              <div *ngIf="lastName.errors.minlength">
+                  *Last Name must be at least 2 characters long
+              </div>
+  
+           </div>
+            </div>
+          <input formControlName="lastName"class="text-input" type="text" placeholder="Last Name">
+          <div style="display: flex; justify-content: space-between;">
+            <label style="font-size: 21px; font-weight: 600; color: #7277c4ff; position: relative;
+            left: 16px"> Email </label>
+            <div *ngIf=" email.invalid && (email.dirty || email.touched)" class="alert-text">
+  
+              <div *ngIf="email.errors.required ">
+                  *Email is required
+              </div>
+  
+              <div *ngIf="email.errors.pattern">
+                  *Email must be valid email address
+              </div>
+  
+           </div>
+            </div>
+          <input formControlName="email" class="text-input" type="text" placeholder="Email Address">
+        
+        </form>
+        
+        <div *ngIf="progress==2" formGroupName="payment">
+          <div class="payment-method">
+              <label for="card" class="method card1">
+                <div class="card-logos">
+                  <img src="assets/images/img/visa_logo.png"/>
+                  <img src="assets/images/img/mastercard_logo.png"/>
+                </div>
+      
+                <div class="radio-input">
+                  <input formControlName="cardtype" id="card" type="radio" name="cardtype" value="Visa/MasterCard">
+                  Pay £340.00 with credit card
+                </div>
+              </label>
+      
+              <label for="paypal" class="method paypal">
+                <img src="assets/images/img/paypal_logo.png"/>
+                <div class="radio-input">
+                  <input formControlName="cardtype" id="paypal" type="radio" name="cardtype" value="PayPal">
+                  Pay £340.00 with PayPal
+                </div>
+              </label>
+            </div>
+      
+            <div class="input-fields">
+              <div class="column-1">
+                <label for="cardholder">Cardholder's Name</label>
+                <input formControlName="cardname" type="text" id="cardholder" />
+      
+                <div class="small-inputs">
+                  <div>
+                    <label for="date">Valid thru</label>
+                    <input formControlName="validdate" type="text" id="date" placeholder="MM / YY" />
+                  </div>
+      
+                  <div>
+                    <label for="verification">CVV / CVC *</label>
+                    <input formControlName="cardcode" type="password" id="verification"/>
+                  </div>
+                </div>
+      
+              </div>
+              <div class="column-2">
+                <label for="cardnumber">Card Number</label>
+                <input formControlName="cardnumber" type="password" id="cardnumber"/>
+      
+                <span class="info">* CVV or CVC is the card security code, unique three digits number on the back of your card separate from its number.</span>
+              </div>
+            </div>
+          </div>
+       
+          <form *ngIf="progress==1" formGroupName="address">
+            <div class="form-component" style="display: flex; flex-direction:row;">
+            <div class="text-form"> Country</div>
+            <select formControlName="country" class="text-input" style="height: 39px;
+            width: 199px;" (change)="getStates()">
+                   <option *ngFor="let country of countries" [ngValue]="country" >
+                    {{country.name}}
+                   </option>
+            </select>
+            </div>
+            <div class="form-component" style="display: flex; flex-direction:row;">
+            <div class="text-form"> State</div>
+            <select formControlName="state" class="text-input" style="height: 39px;
+            width: 199px;">
+                   <option *ngFor="let state of states" [ngValue]="state" >
+                    {{state.name}}
+                   </option>
+            </select>
+            </div>
+            <div *ngIf=" city.invalid && (city.dirty || city.touched)" class="alert-text1">
+  
+              <div *ngIf="city.errors.required ">
+                  *City is required
+              </div>
+  
+              <div *ngIf="city.errors.pattern">
+                  *City must be at least 2 characters long
+              </div>
+  
+           </div>
+            <div class="form-component" style="display: flex; flex-direction:row;">
+            <div class="text-form"> City</div>
+            <input formControlName="city" class="text-input" type="text" placeholder="City">
+            </div>
+
+            <div *ngIf=" street.invalid && (street.dirty || street.touched)"  class="alert-text1">
+  
+              <div *ngIf="street.errors.required ">
+                  *Street is required
+              </div>
+  
+              <div *ngIf="street.errors.pattern">
+                  *Street must be at least 2 characters long
+              </div>
+  
+           </div>
+            
+            <div class="form-component" style="display: flex; flex-direction:row;">
+            <div class="text-form"> Street</div>
+            <input formControlName="street" class="text-input" type="text" placeholder="Street">
+            
+            </div>
+           
+          
+           </form>
+
+           <div *ngIf="progress==3" class="form-area">
+            <h3>Review Your Order</h3>
+            <b>Total Quantity: {{totalquantity}}</b>
+            <h5>Shipping: FREE</h5>
+            <b>Total Price: {{totalprice | currency: 'USD'}}</b>
+          </div>
+
+          
+      </form>
+      </div>
+  
+      <div class="panel-footer">
+        <button (click)="back()" class="btn1 back-btn">Back</button>
+        <button (click)="next()"  (click)="purchase()" form="ngForm" type="submit"  class="btn1 next-btn">Next Step</button>
+      </div>
+    </div>
+  </div>
